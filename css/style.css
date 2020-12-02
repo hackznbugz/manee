@@ -178,11 +178,15 @@ h1{
     line-height: 5rem;
     font-weight: 600;
 }
+.main h1{
+    color:#fff;
+}
 .main .content p{
     font-size: 1.7rem;
     margin: 0;
     line-height: 2rem;
     width:40vw;
+    color:#fff;
 }
 .about, .imageGallery{
     display: flex;
