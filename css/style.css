@@ -1,3 +1,13 @@
+@font-face {
+    font-family: poppins-bold;
+    src: url(../font/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: poppins-light;
+    src: url(../font/Poppins-Light.ttf);
+}
+
 *::-webkit-scrollbar {
     display: none;
   }
@@ -16,12 +26,18 @@ a{
 body{
     margin: 0px;
     padding: 0px;
-    font-family: poppins;
     color: #1a212b;
     width: 100vw;
     overflow-x: hidden;
     height: 100%;
     position:relative;
+    font-family: poppins-light;
+}
+h1{
+    font-family: poppins-bold;
+}
+p{
+    font-family: poppins-light;
 }
 .menu{
     display: flex;
@@ -156,6 +172,7 @@ body{
     display: inline-block;
     position: relative;
     width: 100vw;
+    height: 100vh;
     overflow: hidden;
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -206,6 +223,9 @@ h1{
     margin-right:2rem;
     padding:1rem 0;
 }
+.about video{
+    width: 100%;
+}
 .about .head span img, .imageGallery .head span img{
     width:1rem;
 }
@@ -240,6 +260,18 @@ h1{
   }
   
   .column img {
+    margin-bottom: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .column video {
+    margin-bottom: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .column iframe {
     margin-bottom: 8px;
     vertical-align: middle;
     width: 100%;
@@ -287,31 +319,11 @@ h1{
     width:6rem;
 }
 
-.socialProof .header span img{
-    width:1rem;
-    margin-left:.3rem;
-}
-.socialProof .header span{
-    font-size: 1.5rem;
-    text-decoration: underline;
-    margin-left: 2rem;
-}
-.socialProof .header a{
-    color: #a7a7b1;
-}
-
-.socialProof .header{
-    color: #a7a7b1;
-    background:rgba(26, 33, 43, 0.9);
-    padding:2rem;
-    display: flex;
-    align-items: center;
-}
 .socialProof{
     background: url('../src/rick.png');
     background-size: cover;
     background-position:center;
-    padding-top:2rem;
+    padding:5rem 0;
     margin-top:.5rem
 }
 .main-carousel img{
@@ -322,6 +334,7 @@ h1{
     text-align: center;
     color: #fff;
     margin-bottom: 3rem;
+    height:auto;
 }
 .main-carousel p{
     font-size:1.3rem;
@@ -330,8 +343,8 @@ h1{
     font-size: 1rem;
 }
 .main-carousel .carousel-cell{
-    width:50%;
-    margin:0 25%;
+    width:70%;
+    margin:0 15%;
 }
 .flickity-page-dots .dot {
     width: 12px;
@@ -469,6 +482,24 @@ footer{
     font-size: .8rem;
 }
 
+#register{
+    padding: .7rem 2rem;
+    border:none;
+    background: #9dc6ff;
+    font-size: 1rem;
+    font-family: poppins-light;
+    text-decoration: underline;
+    position: fixed;
+    bottom: 2rem;
+    right:3rem;
+    border: 2px solid #fff;
+    box-shadow: -2px 2px 10px rgba(80, 58, 58, 0.2);
+}
+
+#register a{
+    color: #1a212b;
+}
+
 @media(max-width:1049px){
     body{
         font-size: 15px;
@@ -511,6 +542,10 @@ footer{
         width:auto;
         height: 70vh;
         z-index: -1;
+    }
+    #register{
+        bottom: 1rem;
+        right: 1rem;
     }
 }
 @media(max-width:854px){
