@@ -1,3 +1,13 @@
+@font-face {
+  font-family: poppins-bold;
+  src: url(../font/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: poppins-light;
+  src: url(../font/Poppins-Light.ttf);
+}
+
 body, html { 
     font-family: Open Sans, sans-serif;  
     text-align: center; 
@@ -60,12 +70,12 @@ body, html {
     line-height: 72px;
     text-transform: uppercase;
     font-size: 13px;
-    font-weight: 200;
     background: transparent;
     color: rgba(0,0,0,0.6);
     margin: 0px auto;
     cursor: text;
     transition: all .15s ease-in-out;
+    font-family: poppins-light;
   }
   input:hover, input:focus { border-color: #1a212b; }
   input:focus { 
@@ -114,7 +124,7 @@ body, html {
   }
 
   h1{
-    font-family: poppins;
+    font-family: poppins-bold;
     color:#a7a7b1;
     font-size: 5rem;
     padding: 2rem;
