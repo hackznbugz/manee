@@ -674,7 +674,7 @@ footer{
     }
     .join span{
         flex-direction: column;
-        padding: .5rem .3rem;
+        padding: .5rem 1rem;
         font-size: 1.2rem;
     }
     .footer{
