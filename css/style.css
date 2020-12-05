@@ -206,6 +206,7 @@ h1{
 .about, .imageGallery{
     display: flex;
     justify-content: space-between;
+    text-align: justify;
 }
 .imageGallery{
     margin: .5rem 0;
@@ -245,6 +246,10 @@ h1{
 .imageGallery{
     height:90vh;
     overflow: hidden;
+}
+
+#videoGallery{
+    height:95vh;
 }
 
 .row {
@@ -404,6 +409,7 @@ h1{
     padding: 2rem;
     background: rgba(26, 33, 43, 0.7);
     margin-bottom:.5rem;
+    text-align: justify;
 }
 .features div .heading{
     padding: .5rem 2rem;
@@ -430,6 +436,7 @@ h1{
 }
 .join p{
     padding-bottom: .6rem;
+    text-align: justify;
 }
 .join span{
     font-size: 1.5rem;
