@@ -89,21 +89,26 @@ function getViewport() {
 }
 
 
-function resize(){
-    var viewPort = getViewport();
-    if(viewPort[0]<580){
-        document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('mainImage')[0].height + 'px';
-    }
-}
-
 window.addEventListener('resize', function(){
-    resize();
+    var viewPort = getViewport();
+    if(viewPort[0]<600){
+        document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('mainImage')[0].height - 60 + 'px';
+    }
 });
 
 document.getElementById('whatsapp').onclick = function(){
     window.location.href = 'https://wa.link/69w18r';
 }
 
+document.getElementById('whatsapp-m').onclick = function(){
+    window.location.href = 'https://wa.link/69w18r';
+}
+
 document.getElementById('register').onclick = function(){
     window.location.href = 'join/';
 }
+
+var viewPort = getViewport();
+if(viewPort[0]<600){
+    document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('mainImage')[0].height - 60 + 'px';
+}    
