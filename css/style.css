@@ -690,4 +690,10 @@ footer{
     .footer div{
         width:auto;
     }
+    #videoGallery{
+        height:auto;
+    }
+    .row{
+        height: 80vh;
+    }
 }
