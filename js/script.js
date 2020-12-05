@@ -99,3 +99,11 @@ function resize(){
 window.addEventListener('resize', function(){
     resize();
 });
+
+document.getElementById('whatsapp').onclick = function(){
+    window.location.href = 'https://wa.link/69w18r';
+}
+
+document.getElementById('register').onclick = function(){
+    window.location.href = 'join/';
+}
