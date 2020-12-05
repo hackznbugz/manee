@@ -284,8 +284,8 @@ h1{
 }
 
 .socialMedia{
-    background: #1a212b;
-    color: #a7a7b1;
+    background: #fff;
+    color: #1a212b;
     text-align: center;
     padding: 2rem 6rem;
     padding-bottom: 3rem;
@@ -307,7 +307,7 @@ h1{
     text-decoration: underline;
 }
 .socialMedia a{
-    color: #a7a7b1;
+    color: #1a212b;
 }
 .socialMedia .icons{
     display: flex;
@@ -322,7 +322,7 @@ h1{
 }
 
 .socialProof{
-    background: url('../src/rick.png');
+    background: #1a212b;
     background-size: cover;
     background-position:center;
     padding:5rem 0;
@@ -549,7 +549,7 @@ footer{
         font-size: 1rem;
         margin: 0;
         margin-top:-0.5rem;
-        line-height: 1rem;
+        line-height: 1.2rem;
     }
 }
 
@@ -560,7 +560,8 @@ footer{
         width:auto;
         height: 70vh;
         z-index: -1;
-        top:0px;
+        top:0;
+        left:-40px;
     }
     #register{
         bottom: 1rem;
@@ -629,9 +630,6 @@ footer{
         margin-bottom:3rem;
     }
     .socialMedia{
-        background: #1a212b;
-        color: #a7a7b1;
-        text-align: center;
         padding: 2rem 0;
         padding-bottom: 3rem;
     }
@@ -673,6 +671,11 @@ footer{
     .join{
         flex-direction: column;
         padding: 3rem 1rem;
+    }
+    .join span{
+        flex-direction: column;
+        padding: .5rem .3rem;
+        font-size: 1.2rem;
     }
     .footer{
         flex-direction: column;
