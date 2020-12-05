@@ -54,6 +54,31 @@ $(window).scroll(function() {
     });
 }).scroll();
 
+var cnum = 0;
+var snum = 0;
+$(window).scroll(function() {
+    var classes = document.getElementById('classes');
+    var students = document.getElementById('students');
+    var scrollDistance = $(window).scrollTop() + 400;
+    
+    if ($('.achievements').position().top <= scrollDistance) {
+        function anim(){
+            if(cnum != 200){
+                cnum += 1;
+            }
+            if(snum != 1000){
+                snum += 1;
+            }
+            classes.innerHTML = cnum;
+            students.innerHTML = snum;
+        }
+        setInterval(anim, 10);
+    }else{
+        cnum = 0;
+        snum = 0;
+    }
+}).scroll();
+
 for(i=0; i<linksMobile.length; i++){
     linksMobile[i].onclick = function(){
         $( "#btn" ).click();
@@ -112,3 +137,4 @@ var viewPort = getViewport();
 if(viewPort[0]<600){
     document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('mainImage')[0].height - 60 + 'px';
 }    
+
