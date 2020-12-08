@@ -618,7 +618,7 @@ footer{
         display: none;
     }
     
-    .imageGallery{
+    .imageGallery, .awards{
         flex-direction: column;
         height: auto;
     }
@@ -626,10 +626,10 @@ footer{
         flex: 100%;
         max-width: 100%;
     }
-    .imageGallery .head{
+    .imageGallery .head, .awards .head{
         width:auto;
     }
-    .imageGallery .row{
+    .imageGallery .row, .awards .row{
         margin-top:.5rem;
     }
     .mobile{
