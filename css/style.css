@@ -32,6 +32,7 @@ body{
     height: 100%;
     position:relative;
     font-family: poppins-light;
+    font-size: 18px;
 }
 h1{
     font-family: poppins-bold;
@@ -203,15 +204,15 @@ h1{
     line-height: 2rem;
     width:40vw;
 }
-.about, .imageGallery{
+.about, .imageGallery, .awards{
     display: flex;
     justify-content: space-between;
     text-align: justify;
 }
-.imageGallery{
+.imageGallery, .awards{
     margin: .5rem 0;
 }
-.about .head, .imageGallery .head{
+.about .head, .imageGallery .head, .awards .head{
     padding:4em 2em;
     color:#a7a7b1;
     background: #1a212b;
@@ -229,14 +230,14 @@ h1{
 .about video{
     width: 100%;
 }
-.about .head span img, .imageGallery .head span img{
+.about .head span img, .imageGallery .head span img, .awards .head span img{
     width:1rem;
 }
-.about .head span, .imageGallery .head span{
+.about .head span, .imageGallery .head span, .awards .head span{
     font-size: 1.5rem;
     text-decoration: underline;
 }
-.about .head span a, .imageGallery .head span a{
+.about .head span a, .imageGallery .head span a, .awards .head span a{
     color: #a7a7b1;
 }
 .about .sub{
@@ -244,6 +245,10 @@ h1{
 }
 
 .imageGallery{
+    height:90vh;
+    overflow: hidden;
+}
+.awards{
     height:90vh;
     overflow: hidden;
 }
@@ -391,6 +396,10 @@ h1{
 .achievements p{
     font-size: 1.3rem;
     margin:0;
+}
+.achievements h1{
+    text-align: center;
+    font-family: poppins-bold;
 }
 
 .features{
