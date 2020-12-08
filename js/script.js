@@ -63,16 +63,20 @@ $(window).scroll(function() {
     
     if ($('.achievements').position().top <= scrollDistance) {
         function anim(){
-            if(cnum != 200){
+            if(cnum != 2000){
                 cnum += 1;
             }
+            
+            classes.innerHTML = cnum + "+";
+        }
+        function anim2(){
             if(snum != 1000){
                 snum += 1;
             }
-            classes.innerHTML = cnum;
-            students.innerHTML = snum;
+            students.innerHTML = snum + "00+";
         }
-        setInterval(anim, 10);
+        setInterval(anim, 1);
+        setInterval(anim2, 1);
     }else{
         cnum = 0;
         snum = 0;
