@@ -39,19 +39,22 @@ function enableSubmit(){
 }
 
 back.onclick = function(){
-    window.location.href = "../";
+    window.location.href = "../index.html";
 }
 
 submit.onclick = function(){
-    if(email.trim() != ''){
-        if(validateEmail(email)){
-            //something
-        }else{
-            alert('Email is not valid!')
-        }
-    }
     if(validatePhone(phone)){
-        //something
+        if(email.trim() != ''){
+            if(validateEmail(email)){
+                document.getElementsByClassName('form-md')[0].style.display = 'none';
+                document.getElementById('h1').innerHTML = 'Thank You!';
+            }else{
+                alert('Email is not valid!')
+            }
+        }else{
+            document.getElementsByClassName('form-md')[0].style.display = 'none';
+            document.getElementById('h1').innerHTML = 'Thank You!';
+        }
     }else{
         alert('Phone is not valid!')
     }
