@@ -7,6 +7,18 @@
     <link rel="shortcut icon" href="../src/logo.png" />
     <link rel="apple-touch-icon" href="../src/logo.png" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <link href= 
+    'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+              rel='stylesheet'> 
+          
+        <script src= 
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" > 
+        </script> 
+          
+        <script src= 
+    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" > 
+        </script> 
     <style>
         @font-face {
         font-family: poppins-bold;
@@ -40,12 +52,28 @@
            font-family: poppins-bold; 
         }
         b{
-            font-size: 20px;
-        }
-        .card-body{
-            display: flex; 
+
+            margin-left: 2rem;
         }
 
+        .card{
+            margin-bottom: 10px;
+            width: 100%;
+            overflow: hidden;
+            overflow-x: scroll;
+        }
+        .card-body{
+            width: auto;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            scrollbar-width: 0px;
+        }
+        .container{
+            margin:0px;
+            max-width: 100vw;
+            padding: 0;
+        }
         @media(max-width: 570px){
             .container{
             padding: 20px 30px;
@@ -84,22 +112,23 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
   var registration = firebase.database().ref();
   var items = []
 
   registration.on('value', function(snapshot) {
+    var key = snapshot.node_.children_.root_.key;
     items = [];
     document.getElementById('container').innerHTML = '';
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      var item = {name: childData.name, address: childData.address, phone: childData.phone, email: childData.email, designation:childData.designation};
+      var item = {name: childData.name, address: childData.address, phone: childData.phone, email: childData.email, designation:childData.designation, key:key, notes: childData.notes, updates: childData.updates };
       items.push(item);
     });
     items.reverse();
     for(i in items){
-        document.getElementById('container').innerHTML += "<div class=\"card\"><div class=\"card-body\"><div class=\"left\">Name : <br> Address : <br> Phone : <br> Email : <br> Designation : </div><div class=\"right\">" + items[i].name + "<br>" + items[i].address + "<br> "+ items[i].phone + "<br>" + items[i].email + "<br>" + items[i].designation + "</div></div></div>";
-    }
+        var address = (items[i].address.length > 24) ? items[i].address.substr(0, 24-1) + '&hellip;' : str;
+        document.getElementById('container').innerHTML += "<div class=\"card\"><div class=\"card-body\"><span><b> Name : </b>" + items[i].name + "</span><span onclick=\"alert('" + items[i].address + "')\"> <b>Address : </b>" + address + "</span><span onclick=\"window.location.href='tel:" + items[i].phone + "'\"> <b> Phone : </b> "+ items[i].phone + "</span><span onclick=\"window.location.href='mailto:" + items[i].email + "'\"> <b>Email : </b>" + items[i].email + "</span><span> <b>Designation : </b>" + items[i].designation + "</span><div style='padding:0px 30px 0px 0px; display:flex; justify-content:space-between; align-items:center;'><b>Notes : </b><input type=\"text\" class=\"form-control\" style=\"width:20vw;\" value=\"" + items[i].notes + "\" onchange=\"update('notes', '" + items[i].key +"', this.value)\"/><b>Followup date : </b><input type=\"text\" class=\"form-control\" style=\"width:20vw;\" value=\"" + items[i].updates + "\" onchange=\"update('updates', '" + items[i].key +"', this.value)\" id=\"date\"/></div></div></div>";
+    } 
     });
 
     function myFunction() {
@@ -109,7 +138,7 @@
     cardContainer = document.getElementById("myItems");
     cards = cardContainer.getElementsByClassName("card");
     for (i = 0; i < cards.length; i++) {
-        title = cards[i].querySelector(".card-body .right");
+        title = cards[i].querySelector(".card-body span");
         if (title.innerText.toUpperCase().indexOf(filter) > -1) {
             cards[i].style.display = "";
         } else {
@@ -117,6 +146,18 @@
         }
     }
 }
+
+function update(key, id, value){
+    firebase.database().ref(id + '/' + key).set(value);
+}
+
+
+    function ready(){
+        $(function() { 
+                $( "#date" ).datepicker(); 
+        });
+    }
+    setInterval(ready, 1000);
     </script>
 </body>
 </html>
