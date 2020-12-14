@@ -132,7 +132,7 @@
     });
     items.reverse();
     for(i in items){
-        var address = (items[i].address.length > 24) ? items[i].address.substr(0, 24-1) + '&hellip;' : str;
+        var address = (items[i].address.length > 24) ? items[i].address.substr(0, 24-1) + '&hellip;' : items[i].address;
         document.getElementById('container').innerHTML += "<div class=\"card\"><div class=\"card-body\"><span><b> Name : </b>" + items[i].name + "</span><span onclick=\"alert('" + items[i].address + "')\"> <b>Address : </b>" + address + "</span><span onclick=\"window.location.href='tel:" + items[i].phone + "'\"> <b> Phone : </b> "+ items[i].phone + "</span><span onclick=\"window.location.href='mailto:" + items[i].email + "'\"> <b>Email : </b>" + items[i].email + "</span><span> <b>Designation : </b>" + items[i].designation + "</span><div style='padding:0px 30px 0px 0px; display:flex; justify-content:space-between; align-items:center;'><b>Notes : </b><input type=\"text\" class=\"form-control\" style=\"width:20vw;\" value=\"" + items[i].notes + "\" onchange=\"update('notes', '" + items[i].key +"', this.value)\"/><b>Followup date : </b><input type=\"text\" class=\"form-control\" style=\"width:20vw;\" value=\"" + items[i].updates + "\" onchange=\"update('updates', '" + items[i].key +"', this.value)\" id=\"date\"/></div></div></div>";
     } 
     });
