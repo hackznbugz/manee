@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Manee</title>
+    <link rel="shortcut icon" href="../src/logo.png" />
+    <link rel="apple-touch-icon" href="../src/logo.png" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        @font-face {
+        font-family: poppins-bold;
+        src: url(../font/Poppins-Medium.ttf);
+        }
+
+        @font-face {
+        font-family: poppins-light;
+        src: url(../font/Poppins-Light.ttf);
+        }
+        *{
+            font-family: poppins-light;
+            padding: 0;
+            margin:0;
+        }
+        
+        body{
+            padding: 20px;
+        }
+        li{
+            padding: 50px 70px;
+            border-bottom: 1px solid grey;
+            font-size: 20px;
+            line-height: 30px;
+            display: flex;
+        }
+        .right{
+            margin-left: 10vw;
+        }
+        .left{
+           font-family: poppins-bold; 
+        }
+        b{
+            font-size: 20px;
+        }
+        .card-body{
+            display: flex; 
+        }
+
+        @media(max-width: 570px){
+            .container{
+            padding: 20px 30px;
+            font-size: .9rem;
+            line-height: 20px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 mb-3">
+            <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for someone..">
+          </div>
+        </div>
+        <div class="row" id="myItems">
+          <div class="col-sm-12 mb-3" id="container">
+                
+          </div>    
+        </div>
+      </div>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+    <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDWg4mns_IEl4M9_xhXOgBb_xPyuxoOQNU",
+    authDomain: "manee-fc4b7.firebaseapp.com",
+    projectId: "manee-fc4b7",
+    storageBucket: "manee-fc4b7.appspot.com",
+    messagingSenderId: "709101093528",
+    appId: "1:709101093528:web:660439befbc8221cdcc6ed",
+    measurementId: "G-938SD0WB39",
+    databaseURL: "https://manee-fc4b7-default-rtdb.firebaseio.com/",
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  var registration = firebase.database().ref();
+  var items = []
+
+  registration.on('value', function(snapshot) {
+    items = [];
+    document.getElementById('container').innerHTML = '';
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      var item = {name: childData.name, address: childData.address, phone: childData.phone, email: childData.email, designation:childData.designation};
+      items.push(item);
+    });
+    items.reverse();
+    for(i in items){
+        document.getElementById('container').innerHTML += "<div class=\"card\"><div class=\"card-body\"><div class=\"left\">Name : <br> Address : <br> Phone : <br> Email : <br> Designation : </div><div class=\"right\">" + items[i].name + "<br>" + items[i].address + "<br> "+ items[i].phone + "<br>" + items[i].email + "<br>" + items[i].designation + "</div></div></div>";
+    }
+    });
+
+    function myFunction() {
+    var input, filter, cards, cardContainer, h5, title, i;
+    input = document.getElementById("myFilter");
+    filter = input.value.toUpperCase();
+    cardContainer = document.getElementById("myItems");
+    cards = cardContainer.getElementsByClassName("card");
+    for (i = 0; i < cards.length; i++) {
+        title = cards[i].querySelector(".card-body .right");
+        if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+    </script>
+</body>
+</html>
