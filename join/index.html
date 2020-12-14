@@ -30,19 +30,32 @@
         </div>
 
         <div class="form-group">
-            <input id="form_name4" class="form-control" type="text"  placeholder="Optional" required>
+            <input id="form_name4" class="form-control" type="text" required>
             <label for="form_name4">Email</label>
+        </div>
+
+        <div class="form-group">
+                <select name="words" id="form_name5">
+                    <option value="">YOUR DESIGNATION</option>
+                    <option value="student">Student</option>
+                    <option value="job seeker / house wife">Job seeker / House wife</option>
+                    <option value="professional">Professional</option>
+                    <option value="business man">Business man</option>
+                </select>
+            </label>
         </div>
 
         <div class="btn">
             <button id="back">Back</button>
-            <button disabled id="submit">Submit</button>
+            <button disabled id="submit" type="button">Submit</button>
         </div>
 
         <p>You will be redirected to the payment page after submitting your informations.</p>
     </form>
 
     <img src="../src/logo.png" alt="">
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
 </body>
 <script src="../js/join_script.js"></script>
 </html>
