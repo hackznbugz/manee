@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Manee</title>
+    <link rel="shortcut icon" href="../src/logo.png" />
+    <link rel="apple-touch-icon" href="../src/logo.png" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Nunito:400,300);
+
+/******************************************************
+ * =General
+ *****************************************************/
+
+/**
+ * Antialiasing
+ */
+
+body, input, button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Reset
+ */
+
+body, form, input, button, h1 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/******************************************************
+ * =Body
+ *****************************************************/
+
+body {
+  padding: 60px;
+  background: #2b2b2b;
+  font-family: Nunito, sans-serif;
+  font-size: 100%;
+}
+
+/******************************************************
+ * =Form
+ *****************************************************/
+
+form {
+  margin: auto;
+  padding: 18px 22px;;
+  width: 320px;
+  border-radius: 5px;
+  background: #2f3439;
+}
+
+/**
+ * Title
+ */
+
+h1 {
+  font: normal 1.6em/1.6em Nunito, sans-serif;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0 23px;
+}
+
+/**
+ * Inputs and button
+ */
+
+input, button {
+  width: 100%;
+  border: none;
+  padding: 16px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  -webkit-transition: background-color 80ms ease-out;
+  -moz-transition: background-color 80ms ease-out;
+  -o-transition: background-color 80ms ease-out;
+  -ms-transition: background-color 80ms ease-out;
+  transition: background-color 80ms ease-out;
+}
+
+/**
+ * Inputs
+ */
+
+input {
+  margin-bottom: 22px;
+  background: #eee;
+  padding-left: 56px;
+}
+
+input[type=text] {
+  background-image: url(https://miloluca.github.io/playground/001_User-Login/icons/user.svg);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 16px center;
+}
+
+input[type=password] {
+  background-image: url(https://miloluca.github.io/playground/001_User-Login/icons/lock.svg);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 16px center;
+}
+
+input:hover {
+  background-color: rgb(244, 244, 244);
+}
+
+input:focus {
+  border-left: 3px solid #ee7147;
+  outline: none;
+  background-color: #fff;
+}
+
+/**
+ * Button
+ */
+
+button {
+  background-color: #ee7147;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background-color: #ff875a;
+  outline: none;
+}
+
+button:active  {
+  background-color: #c77354;
+  
+  opacity: .7;
+}
+
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Admin Login</h1>
+        <input type="text" id="uname" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="login()" type="button">Log-in</button>
+      </form>
+
+      <script>
+          function login(){
+              var uname = document.getElementById('uname').value;
+              var pass = document.getElementById('pass').value;
+              if(uname == "admin" && pass == "manee@123#"){
+                sessionStorage.setItem("access", "true");
+                window.location.href = "../admin/";
+              }else{
+                  alert("Invalid password or username");
+              }
+          }
+      </script>
+</body>
+</html>
