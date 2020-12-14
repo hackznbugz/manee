@@ -240,8 +240,5 @@ body, html {
       line-height: 70px !important;
       padding: 2rem !important;
     }
-    h1 p[style]{
-      line-height: 10px !important;
-    }
   }
 
