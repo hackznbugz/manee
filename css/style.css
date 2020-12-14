@@ -8,14 +8,10 @@
     src: url(../font/Poppins-Light.ttf);
 }
 
-*::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+
+  body{
+    scrollbar-width: 10px;
+    display:block;
   }
 
 a{
@@ -32,7 +28,7 @@ body{
     height: 100%;
     position:relative;
     font-family: poppins-light;
-    font-size: 18px;
+    font-size: 17px;
 }
 h1{
     font-family: poppins-bold;
