@@ -1,3 +1,5 @@
+
+
 var firebaseConfig = {
     apiKey: "AIzaSyDWg4mns_IEl4M9_xhXOgBb_xPyuxoOQNU",
     authDomain: "manee-fc4b7.firebaseapp.com",
@@ -72,13 +74,46 @@ submit.onclick = function(){
             document.getElementById('h1').style.textAlign = 'center';
             document.getElementById('h1').style.padding = '5rem';
 
+            var today = new Date();
+            var dd = today.getDate();
+
+            var mm = today.getMonth()+1; 
+            var yyyy = today.getFullYear();
+            if(dd<10) 
+            {
+                dd='0'+dd;
+            } 
+
+            if(mm<10) 
+            {
+                mm='0'+mm;
+            } 
+            today = dd+'-'+mm+'-'+yyyy;
+
             firebase.database().ref().push({
                 name: name,
                 address: address,
                 phone: phone,
                 email: email,
-                designation : des
+                designation : des,
+                date:today,
+                notes: '',
+                updates: ''
             });
+
+            $.ajax({
+                url: "../php/mail.php",
+                type: "post",
+                data: {name: name, address: address, phone: phone, email: email, designation : des, date:today,} ,
+                success: function (response) {
+        
+                   console.log('ok');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                   console.log(textStatus, errorThrown);
+                }
+            });
+
         }else{
             alert('Email is not valid!')
         }
