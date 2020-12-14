@@ -100,6 +100,12 @@
     
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
     <script>
+        if(sessionStorage.getItem("access") == "true"){
+            //nothing
+        }else{
+            window.location.href = "../login/"
+        }
+
     var firebaseConfig = {
     apiKey: "AIzaSyDWg4mns_IEl4M9_xhXOgBb_xPyuxoOQNU",
     authDomain: "manee-fc4b7.firebaseapp.com",
