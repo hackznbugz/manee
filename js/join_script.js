@@ -69,7 +69,7 @@ submit.onclick = function(){
     if(validatePhone(phone)){
         if(validateEmail(email)){
             document.getElementsByClassName('form-md')[0].style.display = 'none';
-            document.getElementById('h1').innerHTML = 'Thank You! <br><span style="font-size:27px;text-align:center;">for expressing your desire to learn</span>';
+            document.getElementById('h1').innerHTML = 'Thank You! <br><span style="font-size:27px;text-align:center;line-height:10px">for expressing your desire to learn</span>';
             document.getElementById('h1').style.lineHeight = '50px';
             document.getElementById('h1').style.textAlign = 'center';
             document.getElementById('h1').style.padding = '5rem';
