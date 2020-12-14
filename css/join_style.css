@@ -238,8 +238,9 @@ body, html {
   @media(max-width:570px){
     h1[style]{
       line-height: 70px !important;
+      padding: 2rem !important;
     }
-    h1 span[style]{
+    h1 p[style]{
       line-height: 10px !important;
     }
   }
